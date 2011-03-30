@@ -1,0 +1,102 @@
+Hi there!  You've just downloaded Pcaster, a parallel ray casting volume 
+rendering and remote viewing toolset for GPU cluster.  It's written in C++.
+
+Full documentation is available inside website/docs_html.zip as well as
+online at http://pcaster.net .
+
+
+How to install: 
+    download tarball: parallel_ofp.tgz
+    check out from cct svn: 
+    svn co https://svn.cct.lsu.edu/repos/clusters/viz/sciviz/code/pcaster_2011
+
+    tar xzvf parallel_ofp.tgz
+    cd parallel_ofp
+    export POFP_DIR = $(HOME)/parallel_ofp
+    make vizws07=1 [dbg=1]
+    or 
+    make [spider=1 | lincoln=1 | longhorn=1 | jgemac=1] [dbg=1]
+
+    Note: You see the pattern here, must specify which computer you compile on, 
+    because libpath and incpath are different in each of the computer platform. 
+    todo: maybe should use the automatic configure, or separate options files. 
+    for now let's stick with the simple thing that works. 
+    set dbg=1 means compile with flag -D_DEBUG -- which enables more print outs.
+    You can also literally add flag -D_DEBUG[1-7] to enable different levels
+    of debug info print outs.
+
+
+Work on individual project
+     cd sdrender
+     make vizws07=1 verbose=1 dbg=1
+
+     Note: the subdir Makefile looks very simple, only need to specify TARGET, 
+     TARGET_OBJS, and necessary DATAFLAGS. All of the rules are in ../make.cfg. 
+     See the line: include ../make.cfg, after the definiton of TARGETs. 
+
+     make clear, clean, clobber. 
+
+     Note: because DATAFLAGS makes code compiles differently, 
+     see src/io/event_relayer.cpp, image_streamer.cpp and scene_manager.cpp.
+     So if you change the DATAFLAGS, make sure to make clean then make vizws=1.  
+
+     All individual projects included:
+     sdrender: standalone volrender
+     render:   single remote volrender
+     viewer:   networked viewer
+     pcaster_onsite: onsite pcaster
+     pcaster_remote: remote pcaster 
+
+     Feel free to develop individual projects. All the base functions are at: 
+     $(POFP_DIR)/src/io, net, volren, pcaster     
+
+
+Run Standalone volrender:
+     default config file: configs/pcaster_options_sd.cfg
+     cd ./bin
+     sd_render [configfile, global_scale]
+
+
+Run single volrender and viewer:
+    default config file:  configs/pcaster_optiones_render.cfg, pcaster_options_viewer.cfg
+    edit the config files, specify the viewer host. 
+
+    At viewer computer:
+    cd ./bin
+    viewer
+
+    At remote computer: 
+    cd ./bin
+    render
+
+
+Run Pcaster Oniste:
+    default config file: configs/pcaster_options.cfg
+    edit config file, set viewer = inplace
+    Onsite works on a local rendering cluster with (tiled) displays attached. 
+    edit the config file, specify how data is divided. 
+    mpiexec -n 2 pcaster_onsite
+
+
+Run Pcaster Remote:
+    default config file: configs/pcaster_options.cfg
+    viewer default config file:  configs/pcaster_optiones_viewer.cfg
+    edit config file, set viewer = localhost or viewer hostname
+    edit the config file, specify how data is divided. 
+
+    At viewer computer:
+    cd ./bin
+    viewer
+
+    At remote computer: 
+    cd ./bin
+    mpiexec -n 2 pcaster_remote
+
+
+
+Please feel free to help out, and if you make any cool changes or enhancements,
+let me know!   I also encourage you to sign up for the pcaster-users mailing 
+list, where there is a growing community of users ready to help out with 
+problems and ideas!
+
+        -- Jinghua Ge, jinghuage@cct.lsu.edu, jinghuage@gmail.com

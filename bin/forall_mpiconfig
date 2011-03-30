@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for i in `cat ~/.nodes`; do
+	cat "-n 1 -host $i $1" >> $2 
+done
