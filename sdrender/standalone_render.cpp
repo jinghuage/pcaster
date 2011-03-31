@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <math.h>
 #include <string.h>
-#include <SDL/SDL.h>
+#include <SDL.h>
 
 #include <assert.h>
 #include <algorithm>

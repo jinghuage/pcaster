@@ -1,5 +1,5 @@
 #include <mpi.h>
-#include <SDL/SDL.h>
+#include <SDL.h>
 
 #include <sstream>
 

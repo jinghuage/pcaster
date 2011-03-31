@@ -4,6 +4,11 @@ rendering and remote viewing toolset for GPU cluster.  It's written in C++.
 Full documentation is available inside website/docs_html.zip as well as
 online at http://pcaster.net .
 
+Platform:
+	Linux, Mac, (Windows coming soon)
+
+Dependencies:
+	Mpich2, boost, SDL, GL, GLEW(linux), HDF5, jpeg, png, 
 
 How to install: 
     download tarball: parallel_ofp.tgz
