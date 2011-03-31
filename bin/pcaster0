@@ -1,0 +1,5 @@
+#!/bin/csh
+
+setenv LD_LIBRARY_PATH /cfs/projects/eaviv/eaviv/lib:/cfs/projects/eaviv/lib:/cfs/projects/eaviv/sage3.0/lib:$LD_LIBRARY_PATH
+setenv DISPLAY :0.0
+./pcaster

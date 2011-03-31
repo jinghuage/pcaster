@@ -1,0 +1,17 @@
+-n 1 -host abe00 ./pcaster1
+-n 1 -host abe00 ./pcaster1
+-n 1 -host abe01 ./pcaster1
+-n 1 -host abe01 ./pcaster1
+-n 1 -host abe02 ./pcaster1
+-n 1 -host abe02 ./pcaster1
+-n 1 -host abe03 ./pcaster1
+-n 1 -host abe03 ./pcaster1
+-n 1 -host abe04 ./pcaster1
+-n 1 -host abe04 ./pcaster1
+-n 1 -host abe05 ./pcaster1
+-n 1 -host abe05 ./pcaster1
+-n 1 -host abe06 ./pcaster1
+-n 1 -host abe06 ./pcaster1
+-n 1 -host abe07 ./pcaster1
+-n 1 -host abe07 ./pcaster1
+

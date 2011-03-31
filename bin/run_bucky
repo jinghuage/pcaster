@@ -1,0 +1,4 @@
+#!/bin/bash
+export DISPLAY=:0.0
+
+./sd_render ../configs/pcaster_options_sd_bucky.cfg 0.3

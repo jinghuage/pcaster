@@ -1,0 +1,5 @@
+#!/bin/csh
+
+setenv LD_LIBRARY_PATH /cfs/projects/eaviv/eaviv/lib:/cfs/projects/eaviv/lib:$LD_LIBRARY_PATH
+
+mpirun -configfile ./mpiconfig_16_pcaster0
